@@ -145,9 +145,14 @@
 
 		</div> <!-- #main-wrapper -->
 
-		<?php print render($page['footer']); ?>
-
 	</div> <!-- #page -->
+
+	<div id="push"></div> <!-- for sticky footer -->
+
 </div> <!-- #page-wrapper -->
+
+<div id="footer-wrapper">
+	<?php print render($page['footer']); ?>
+</div>
 
 <?php print render($page['bottom']); ?>
