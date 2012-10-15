@@ -60,7 +60,10 @@
  * @see template_process()
  */
 ?><!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html lang="en" class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 
 <head profile="<?php print $grddl_profile; ?>">
 	<?php print $head; ?>
