@@ -117,15 +117,20 @@
 					<?php endif; ?>
 					<?php print render($title_suffix); ?>
 					<?php print $messages; ?>
-					<?php if ($tabs = render($tabs)): ?>
-						<div class="tabs"><?php print $tabs; ?></div>
+
+					<?php if(!$is_front): ?>
+						<?php if ($tabs = render($tabs)): ?>
+							<div class="tabs"><?php print $tabs; ?></div>
+						<?php endif; ?>
+						<?php print render($page['help']); ?>
+						<?php if ($action_links): ?>
+							<ul class="action-links"><?php print render($action_links); ?></ul>
+						<?php endif; ?>
+					
+						<?php print render($page['content']); ?>
+					<?php else: ?>
+						<?php print render($page['content_front']); ?>
 					<?php endif; ?>
-					<?php print render($page['help']); ?>
-					<?php if ($action_links): ?>
-						<ul class="action-links"><?php print render($action_links); ?></ul>
-					<?php endif; ?>
-			
-					<?php print render($page['content']); ?>
 	
 				</div> <!-- #page-content -->					
 
