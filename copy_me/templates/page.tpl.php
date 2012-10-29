@@ -120,12 +120,6 @@
 
 				<?php print $feed_icons; ?>
 
-				<?php if ($page['navigation']): ?>
-					<div id="navigation">
-						<?php print render($page['navigation']); ?>
-					</div> <!-- .section -->
-				<?php endif; ?>
-
 				<?php print render($page['sidebar_first']); ?>
 
 				<?php print render($page['sidebar_second']); ?>
