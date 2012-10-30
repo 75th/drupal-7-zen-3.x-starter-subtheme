@@ -1,0 +1,62 @@
+@import "clearless/all.less";
+
+
+
+
+
+
+
+
+
+
+
+.clearer {
+	&:after {
+		content: ".";
+		display: block;
+		height: 0px;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+.list-reset {
+	margin: 0px;
+	padding: 0px;
+	text-indent: 0px;
+	list-style: none;
+	list-style-type: none;
+	list-style-image: none;
+
+	li {
+		margin: 0px;
+		padding: 0px;
+		text-indent: 0px;
+		list-style: none;
+		list-style-type: none;
+		list-style-image: none;
+	}
+}
+
+.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+	-webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+	-moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+	box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+
+.centered-menu {
+	width: 100%;
+	overflow: hidden; // Comment out sometimes?
+
+	> ul {
+		position: relative;
+		float: right;
+		right: 50%;
+
+		> li {
+			position: relative;
+			float: left;
+			left: 50%;
+		}
+	}
+}

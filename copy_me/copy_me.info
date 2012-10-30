@@ -84,6 +84,7 @@ regions[sidebar_second] = Second sidebar
 regions[navigation]     = Navigation bar
 regions[highlighted]    = Highlighted
 regions[content]        = Content
+regions[content_front]  = Front page content
 regions[above_header]	= Above header
 regions[header]         = Header
 regions[footer]         = Footer
