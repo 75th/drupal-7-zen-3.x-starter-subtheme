@@ -78,19 +78,17 @@ scripts[] = js/script.js
 ; add a line line to this file, and then add the new $page['REGION'] variable
 ; to your page.tpl.php template.
 
-regions[help]           = Help
-regions[sidebar_first]  = First sidebar
-regions[sidebar_second] = Second sidebar
-regions[navigation]     = Navigation bar
-regions[highlighted]    = Highlighted
-regions[content]        = Content
-regions[content_front]  = Front page content
+regions[top]            = Page top
 regions[above_header]	= Above header
 regions[header]         = Header
+regions[highlighted]    = Highlighted
+regions[help]           = Help
+regions[content_front]  = Front page content
+regions[content]        = Content
+regions[sidebar_first]  = First sidebar
+regions[sidebar_second] = Second sidebar
 regions[footer]         = Footer
 regions[bottom]         = Page bottom
-regions[page_top]       = Page top
-regions[page_bottom]    = Page bottom
 
 
 
