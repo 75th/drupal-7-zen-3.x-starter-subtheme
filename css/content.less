@@ -50,3 +50,21 @@
 		}
 	}
 }
+
+.columns {
+	li {
+		list-style-position: inside;
+	}
+
+	&.two {
+		.columns(2, 20px);
+	}
+
+	&.three {
+		.columns(3, 15px);
+	}
+}
+
+ul.columns {
+	padding-left: 0px;
+}
