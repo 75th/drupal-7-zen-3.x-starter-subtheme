@@ -12,7 +12,7 @@
 ; page at admin/appearance.
 
 screenshot  = screenshot.png
-name        = Pleth Starter Theme
+name        = Zen Starter Theme
 description = 
 
 
@@ -65,7 +65,7 @@ stylesheets-conditional[lte IE 6][all][]  = css/zen/ie6.css
 
 ; Optionally add some JavaScripts to your theme.
 
-scripts[] = js/script.js
+scripts[] = js/copy_me.js
 
 
 ; The regions defined in Zen's default page.tpl.php file.  The name in

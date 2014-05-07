@@ -1,16 +1,38 @@
 @import "clearless/all.less";
 
+// ***** COLORS ***** //
+
+// Raw colors
+
+@black: black;
+@white: white;
+
+// Applied colors 
 
 
+// ***** SIZES ***** //
+
+@desktop-large-min: 1200px;
+	@desktop-small-max: @desktop-large-min - 1px;
+
+@desktop-small-min: 980px;
+	@tablet-max: @desktop-small-min - 1px;
+
+@tablet-min: 768px;
+	@mobile-large-max: @tablet-min - 1px;
+
+@mobile-large-min: 500px;
+	@mobile-small-max: @mobile-large-min - 1px;
+
+// ***** SITE-SPECIFIC MIXINS ***** //
 
 
+// ***** FONTS ***** //
 
 
+// ***** GENERIC MIXINS ***** //
 
-
-
-
-.clearer {
+.clearer() {
 	&:after {
 		content: ".";
 		display: block;
@@ -20,7 +42,7 @@
 	}
 }
 
-.list-reset {
+.list-reset() {
 	margin: 0px;
 	padding: 0px;
 	text-indent: 0px;
@@ -38,13 +60,14 @@
 	}
 }
 
-.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
-	-webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-	-moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
-	box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+.hide-text() {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
 }
 
-.centered-menu {
+.centered-menu() {
 	width: 100%;
 	overflow: hidden; // Comment out sometimes?
 
