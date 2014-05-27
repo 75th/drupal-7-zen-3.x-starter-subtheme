@@ -118,8 +118,6 @@
 	
 				</div> <!-- #page-content -->					
 
-				<?php print $feed_icons; ?>
-
 				<?php print render($page['sidebar_first']); ?>
 
 				<?php print render($page['sidebar_second']); ?>
