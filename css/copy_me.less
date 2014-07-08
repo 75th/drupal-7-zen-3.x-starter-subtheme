@@ -1,23 +1,4 @@
-@import "base.less"; // Keep at top of file
-
-* {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-}
-
-ul.tabs, ul.tabs * {
-	box-sizing: content-box;
-	-moz-box-sizing: content-box;
-}
-
-table {
-	width: 100%;
-	
-	td, th {
-		padding: 3px;
-		vertical-align: middle;
-	}
-}
+@import "base/base.less";    // Keep at top of file
 
 
 
@@ -31,9 +12,5 @@ table {
 
 
 
-
-
-
-
-
-@import "content.less"; // Keep at bottom of file
+@import "responsive.less" // Keep at bottom of file
+@import "content.less";   // Keep at bottom of file

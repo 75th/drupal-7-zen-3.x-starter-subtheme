@@ -78,15 +78,23 @@
 			</div>
 		<?php endif; ?>
 
-		<div id="header">
-			<h1>
-				<a href="<?php print $front_page; ?>" rel="home"><span><?php print $site_name; ?></span></a>
-			</h1>
+		<header>
+			<div>
+				<h1>
+					<a href="<?php print $front_page; ?>" rel="home"><span><?php print $site_name; ?></span></a>
+				</h1>
 
-			<?php print render($page['header']); ?>
-		</div> <!-- #header -->
+				<?php print render($page['header']); ?>
+			</div>
+		</header>
 
-		<?php print render($page['navigation']); ?>
+		<nav>
+			<?php print render($page['navigation']); ?>
+		</nav>
+
+		<div id="hero">
+			<?php print render($page['hero']); ?>
+		</div>
 
 		<div id="main-wrapper">
 			<div id="main" <?php if ($main_menu || $page['navigation']) { print 'class="with-navigation"'; } ?>>
@@ -95,14 +103,16 @@
 					<?php print render($page['highlighted']); ?>
 					<?php print $breadcrumb; ?>
 
-					<?php print render($title_prefix); ?>
-					<?php if ($title): ?>
-						<h1 class="title" id="page-title"><?php print $title; ?></h1>
-					<?php endif; ?>
-					<?php print render($title_suffix); ?>
 					<?php print $messages; ?>
 
 					<?php if(!$is_front): ?>
+
+						<?php print render($title_prefix); ?>
+						<?php if ($title): ?>
+							<h1 class="title" id="page-title"><?php print $title; ?></h1>
+						<?php endif; ?>
+						<?php print render($title_suffix); ?>
+					
 						<?php if ($tabs = render($tabs)): ?>
 							<div class="tabs"><?php print $tabs; ?></div>
 						<?php endif; ?>
@@ -132,8 +142,10 @@
 
 </div> <!-- #page-wrapper -->
 
-<div id="footer-wrapper">
-	<?php print render($page['footer']); ?>
-</div>
+<footer>
+	<div>
+		<?php print render($page['footer']); ?>
+	</div>
+</footer>
 
 <?php print render($page['bottom']); ?>

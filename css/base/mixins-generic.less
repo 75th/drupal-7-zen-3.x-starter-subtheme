@@ -1,39 +1,3 @@
-@import "clearless/all.less";
-
-// ***** COLORS ***** //
-
-// Raw colors
-
-@black: black;
-@white: white;
-
-// Applied colors 
-
-
-// ***** SIZES ***** //
-
-@desktop-large-min: 1200px;
-	@desktop-small-max: @desktop-large-min - 1px;
-
-@desktop-small-min: 980px;
-	@tablet-max: @desktop-small-min - 1px;
-
-@tablet-min: 768px;
-	@mobile-large-max: @tablet-min - 1px;
-
-@mobile-large-min: 500px;
-	@mobile-small-max: @mobile-large-min - 1px;
-
-@footer-height: 200px;
-
-// ***** SITE-SPECIFIC MIXINS ***** //
-
-
-// ***** FONTS ***** //
-
-
-// ***** GENERIC MIXINS ***** //
-
 .frame(@margin: 0px) {
 	@gutter: @margin * 2;
 	width: @desktop-small-min - @gutter;
@@ -200,4 +164,34 @@
 	-webkit-column-gap: @gap;
 	-moz-column-gap: @gap;
 	column-gap: @gap;
+}
+
+.translateX(@translation) {
+	-webkit-transform: translateX(@translation);
+	-moz-transform: translateX(@translation);
+	-ms-transform: translateX(@translation);
+	-o-transform: translateX(@translation);
+	transform: translateX(@translation);
+}
+
+.transition-delay(@delay) {
+	-webkit-transition-delay: @delay;
+	-moz-transition-delay: @delay;
+	-ms-transition-delay: @delay;
+	-o-transition-delay: @delay;
+	transition-delay: @delay;	
+}
+
+.rotate() {
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
 }

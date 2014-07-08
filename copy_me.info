@@ -65,6 +65,10 @@ stylesheets-conditional[lte IE 6][all][]  = css/zen/ie6.css
 
 ; Optionally add some JavaScripts to your theme.
 
+scripts[] = js/modernizr.js
+scripts[] = js/jRespond.min.js
+scripts[] = js/jquery-1.11.1.min.js
+scripts[] = js/jquery-multislide.js
 scripts[] = js/copy_me.js
 
 
@@ -81,6 +85,8 @@ scripts[] = js/copy_me.js
 regions[top]            = Page top
 regions[above_header]	= Above header
 regions[header]         = Header
+regions[navigation]     = Navigation
+regions[hero]           = Hero area
 regions[highlighted]    = Highlighted
 regions[help]           = Help
 regions[content_front]  = Front page content

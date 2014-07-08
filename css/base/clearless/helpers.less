@@ -23,10 +23,19 @@
 	box-shadow: @shadow;
 }
 
-.transition(@transition) {
+.transition(@transition, @property: 'transform') {
+	@webkit-prop: %('-webkit-%s', @property);
+	@moz-prop: %('-moz-%s', @property);
+	@o-prop: %('-o-%s', @property);
 	-webkit-transition: @transition;
 	-moz-transition: @transition;
-	transition: @transition;
+	-o-transition: @transition;
+	transition:  @transition;
+
+	-webkit-transition-property: e(@webkit-prop);
+	-moz-transition-property: e(@moz-prop);
+	-o-transition-property: e(@o-prop);
+	transition-property: e(@property);
 }
 
 .rotate(@rotation) {
