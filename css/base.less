@@ -24,6 +24,8 @@
 @mobile-large-min: 500px;
 	@mobile-small-max: @mobile-large-min - 1px;
 
+@footer-height: 200px;
+
 // ***** SITE-SPECIFIC MIXINS ***** //
 
 
@@ -31,6 +33,121 @@
 
 
 // ***** GENERIC MIXINS ***** //
+
+.frame(@margin: 0px) {
+	@gutter: @margin * 2;
+	width: @desktop-small-min - @gutter;
+	margin: auto;
+
+	// MEDIA QUERIES FOR LATER THINGS GO HERE
+	@media only screen and (min-width: @desktop-large-min) {
+		width: @desktop-large-min - @gutter;
+	}
+
+	@media only screen and (max-width: @tablet-max) and (min-width: @tablet-min) {
+		width: @tablet-min - @gutter;
+	}
+
+	@media only screen and (max-width: @mobile-large-max) {
+		width: 96vw;
+		margin-left: 2vw;
+		margin-right: 2vw;
+	}
+}
+
+.cols-width(@num, @full-width, @margin: 10px) {
+	@gutter: @margin * 2;
+	@full-col: @full-width / 12;
+	@col-width: @full-col - @gutter;
+
+	margin-left: @margin;
+	margin-right: @margin;
+	width: @num * @full-col - @gutter;
+}
+
+.cols(@num, @float: left) {
+	float: @float;
+
+	.cols-width(@num, @desktop-small-min);
+	
+	@media only screen and (min-width: @desktop-large-min) {
+		.cols-width(@num, @desktop-large-min);	
+	}
+
+	@media only screen and (max-width: @tablet-max) and (min-width: @tablet-min) {
+		.cols-width(@num, @tablet-min);
+	}
+
+	@media only screen and (max-width: @mobile-large-max) {
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+}
+
+.cols(inner, @num, @float: left) {
+	.cols(@num, @float);
+
+	&:first-child {
+		margin-left: 0px;
+	}
+
+	&:last-child {
+		margin-right: 0px;
+	}
+}
+
+.distribute-center(@overflow: hidden, @offset-v: 1px) {
+	text-align: justify;
+	overflow: @overflow;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 100%;
+	}
+
+	&:before {
+		content: '';
+		display: block;
+		margin-top: -@offset-v + 1px;
+	}
+
+	> * {
+		display: inline-block;
+		margin-right: -0.25em;
+	//	position: relative;
+		margin-top: @offset-v - 2px;
+	}
+}
+
+.sticky-footer(@footer-height: @footer-height) {
+
+	@media only screen and (min-width: @tablet-min) {
+		@admin-menu-height: 29px;
+
+		&, body {
+			height: 100%;
+		}
+
+		#page-wrapper {
+			min-height: 100%;
+			height: auto !important;
+			height: 100%;
+			margin: 0 auto -@footer-height;
+		}
+
+		footer, #push {
+			height: @footer-height;
+		}
+
+		body.admin-menu {
+			margin-top: 0px !important;
+			padding-top: 29px;
+		}
+	}
+}
 
 .clearer() {
 	&:after {
@@ -58,9 +175,9 @@
 	display: block;
 }
 
-.centered-menu() {
+.centered-menu(@overflow: hidden) {
 	width: 100%;
-	overflow: hidden; // Comment out sometimes?
+	overflow: @overflow; // Comment out sometimes?
 
 	> ul {
 		position: relative;
