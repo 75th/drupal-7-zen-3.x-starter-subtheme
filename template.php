@@ -58,6 +58,9 @@
  *   and http://drupal.org/node/190815#template-suggestions
  */
 
+function copy_me_date_all_day_label() {
+	return '';
+}
 
 /**
  * Override or insert variables into the html templates.
