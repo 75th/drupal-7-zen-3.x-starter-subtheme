@@ -72,11 +72,11 @@ function copy_me_date_all_day_label() {
  */
 /* -- Delete this line if you want to use this function
 function copy_me_preprocess_html(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+	$variables['sample_variable'] = t('Lorem ipsum.');
 
-  // The body tag's classes are controlled by the $classes_array variable. To
-  // remove a class from $classes_array, use array_diff().
-  //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
+	// The body tag's classes are controlled by the $classes_array variable. To
+	// remove a class from $classes_array, use array_diff().
+	//$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
 }
 // */
 
@@ -90,7 +90,7 @@ function copy_me_preprocess_html(&$variables, $hook) {
  */
 /* -- Delete this line if you want to use this function
 function copy_me_preprocess_page(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+	$variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
 
@@ -104,14 +104,14 @@ function copy_me_preprocess_page(&$variables, $hook) {
  */
 /* -- Delete this line if you want to use this function
 function copy_me_preprocess_node(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+	$variables['sample_variable'] = t('Lorem ipsum.');
 
-  // Optionally, run node-type-specific preprocess functions, like
-  // copy_me_preprocess_node_page() or copy_me_preprocess_node_story().
-  $function = __FUNCTION__ . '_' . $variables['node']->type;
-  if (function_exists($function)) {
-    $function($variables, $hook);
-  }
+	// Optionally, run node-type-specific preprocess functions, like
+	// copy_me_preprocess_node_page() or copy_me_preprocess_node_story().
+	$function = __FUNCTION__ . '_' . $variables['node']->type;
+	if (function_exists($function)) {
+		$function($variables, $hook);
+	}
 }
 // */
 
@@ -125,7 +125,7 @@ function copy_me_preprocess_node(&$variables, $hook) {
  */
 /* -- Delete this line if you want to use this function
 function copy_me_preprocess_comment(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+	$variables['sample_variable'] = t('Lorem ipsum.');
 }
 // */
 
@@ -139,7 +139,7 @@ function copy_me_preprocess_comment(&$variables, $hook) {
  */
 /* -- Delete this line if you want to use this function
 function copy_me_preprocess_block(&$variables, $hook) {
-  // Add a count to all the blocks in the region.
-  $variables['classes_array'][] = 'count-' . $variables['block_id'];
+	// Add a count to all the blocks in the region.
+	$variables['classes_array'][] = 'count-' . $variables['block_id'];
 }
 // */
