@@ -1,13 +1,35 @@
-@desktop-large-min: 1200px;
-	@desktop-small-max: @desktop-large-min - 1px;
+@columns: 12;                   // Number of columns the design is based around
 
-@desktop-small-min: 980px;
-	@tablet-max: @desktop-small-min - 1px;
+@desktop-large-min-max: 1200px; // The largest you want the large desktop size
+                                // to kick in at, scaling up
+@desktop-small-min-max: 980px;  // The largest you want the small desktop size
+                                // to end at, scaling down
+@tablet-min-max: 768px;         // The largest you want the tablet size to end
+                                // at, scaling down
 
-@tablet-min: 768px;
-	@mobile-large-max: @tablet-min - 1px;
+@column-factor: 5;              // The number you want all column widths to be
+                                // divisible by
+
+// The three lines below figure out what column width fits the right number of
+// columns, based on the variables above
+
+@desktop-large-column-x: floor(@desktop-large-min-max / @columns) - mod(floor(@desktop-large-min-max / @columns), @column-factor);
+@desktop-small-column-x: floor(@desktop-small-min-max / @columns) - mod(floor(@desktop-small-min-max / @columns), @column-factor);
+@tablet-column-x: floor(@tablet-min-max / @columns) - mod(floor(@tablet-min-max / @columns), @column-factor);
+
+@desktop-large-min: (@desktop-large-column-x * @columns);
+	@desktop-small-max: (@desktop-large-min - 1px);
+
+@desktop-small-min: (@desktop-small-column-x * @columns);
+	@tablet-max: (@desktop-small-min - 1px);
+
+@tablet-min: (@tablet-column-x * @columns);
+	@mobile-large-max: (@tablet-min - 1px);
 
 @mobile-large-min: 500px;
-	@mobile-small-max: @mobile-large-min - 1px;
+	@mobile-small-max: (@mobile-large-min - 1px);
 
 @footer-height: 200px;
+
+@admin-menu-y: 30px;
+@admin-menu-shortcut-y: 34px;

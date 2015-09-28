@@ -3,7 +3,6 @@
 	width: @desktop-small-min - @gutter;
 	margin: auto;
 
-	// MEDIA QUERIES FOR LATER THINGS GO HERE
 	@media only screen and (min-width: @desktop-large-min) {
 		width: @desktop-large-min - @gutter;
 	}
@@ -13,10 +12,22 @@
 	}
 
 	@media only screen and (max-width: @mobile-large-max) {
-		width: 96vw;
-		margin-left: 2vw;
-		margin-right: 2vw;
+		.mobile-full();
 	}
+}
+
+.mobile-full() {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.frame-cancel() {
+	.clearer-cancel();
+	width: 100%;
+	margin: 0px;
+
+	// FIXME: Do I need media queries here? I had them on eVersity, but I don't think I had to?
 }
 
 .cols-width(@num, @full-width, @margin: 10px) {
@@ -33,9 +44,9 @@
 	float: @float;
 
 	.cols-width(@num, @desktop-small-min);
-	
+
 	@media only screen and (min-width: @desktop-large-min) {
-		.cols-width(@num, @desktop-large-min);	
+		.cols-width(@num, @desktop-large-min);
 	}
 
 	@media only screen and (max-width: @tablet-max) and (min-width: @tablet-min) {
@@ -87,29 +98,48 @@
 }
 
 .sticky-footer(@footer-height: @footer-height) {
+	&, body {
+		height: 100%;
+	}
 
-	@media only screen and (min-width: @tablet-min) {
-		@admin-menu-height: 29px;
+	#page-wrapper {
+		min-height: 100%;
+		height: auto !important;
+		height: 100%;
+		margin: 0 auto -@footer-height;
+	}
 
-		&, body {
-			height: 100%;
-		}
+	footer, #push {
+		height: @footer-height;
+	}
 
-		#page-wrapper {
-			min-height: 100%;
-			height: auto !important;
-			height: 100%;
-			margin: 0 auto -@footer-height;
-		}
+	body.admin-menu {
+		margin-top: 0px !important;
+		padding-top: @admin-menu-y;
+	}
 
-		footer, #push {
-			height: @footer-height;
-		}
+	@media only screen and (max-width: @tablet-max) {
+		.sticky-footer-cancel();
+	}
+}
 
-		body.admin-menu {
-			margin-top: 0px !important;
-			padding-top: 29px;
-		}
+.sticky-footer-cancel() {
+	&, body {
+		height: auto;
+	}
+
+	#page-wrapper {
+		min-height: 0px;
+		height: auto !important;
+		margin: 0 auto;
+	}
+
+	footer, #push {
+		height: auto;
+	}
+
+	body.admin-menu {
+		padding-top: 29px;
 	}
 }
 
@@ -117,13 +147,21 @@
 	&:after {
 		content: ".";
 		display: block;
+		font-size: 0.1px;
 		height: 0px;
 		clear: both;
 		visibility: hidden;
 	}
 }
 
+.clearer-cancel() {
+	&:after {
+		content: none;
+	}
+}
+
 .list-reset() {
+	display: block;
 	margin: 0px;
 	padding: 0px;
 	text-indent: 0px;
@@ -133,6 +171,7 @@
 }
 
 .hide-text() {
+	font-size: 0.1px;
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
@@ -156,42 +195,21 @@
 	}
 }
 
-.columns(@num, @gap) {
-	-webkit-columns: @num;
-	-moz-columns: @num;
-	columns: @num;
-	
-	-webkit-column-gap: @gap;
-	-moz-column-gap: @gap;
-	column-gap: @gap;
+.vertical-center() {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
-.translateX(@translation) {
-	-webkit-transform: translateX(@translation);
-	-moz-transform: translateX(@translation);
-	-ms-transform: translateX(@translation);
-	-o-transform: translateX(@translation);
-	transform: translateX(@translation);
+.horizontal-center() {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
-.transition-delay(@delay) {
-	-webkit-transition-delay: @delay;
-	-moz-transition-delay: @delay;
-	-ms-transition-delay: @delay;
-	-o-transition-delay: @delay;
-	transition-delay: @delay;	
-}
-
-.rotate() {
-	-webkit-transform-origin: 50% 50%;
-	-moz-transform-origin: 50% 50%;
-	-ms-transform-origin: 50% 50%;
-	-o-transform-origin: 50% 50%;
-	transform-origin: 50% 50%;
-
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
+.all-center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
