@@ -80,9 +80,9 @@
 
 		<header>
 			<div>
-				<h1>
-					<a href="<?php print $front_page; ?>" rel="home"><span><?php print $site_name; ?></span></a>
-				</h1>
+				<<?php print $site_name_element; ?> id="site-title">
+					<a href="<?php print $front_page; ?>" rel="home"><img class="site-logo" src="<?php print $logo; ?>"> <?php print $site_name; ?></a>
+				</<?php print $site_name_element; ?>>
 
 				<?php print render($page['header']); ?>
 			</div>
@@ -112,7 +112,7 @@
 							<h1 class="title" id="page-title"><?php print $title; ?></h1>
 						<?php endif; ?>
 						<?php print render($title_suffix); ?>
-					
+
 						<?php if ($tabs = render($tabs)): ?>
 							<div class="tabs"><?php print $tabs; ?></div>
 						<?php endif; ?>
@@ -120,13 +120,14 @@
 						<?php if ($action_links): ?>
 							<ul class="action-links"><?php print render($action_links); ?></ul>
 						<?php endif; ?>
-					
+
 						<?php print render($page['content']); ?>
 					<?php else: ?>
+						<?php render($page['content']) // Not printing this, but Metatag module doesn't work if we don't render it ?>
 						<?php print render($page['content_front']); ?>
 					<?php endif; ?>
-	
-				</div> <!-- #page-content -->					
+
+				</div> <!-- #page-content -->
 
 				<?php print render($page['sidebar_first']); ?>
 

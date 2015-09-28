@@ -1,3 +1,5 @@
+/* Lanny Heidbreder's stupid, old, unfinished, broken, buggy slideshow script. Do not use. */
+
 (function($) {
 
 	var methods = {
@@ -5,10 +7,10 @@
 			$(this).hide();
 			var multislideID = params['multislideID'];
 			var region = params['region'];
-			
+
 			var data = params['data'];
 			data = data['nodes'];
-			
+
 			var slideType = typeof params['type'] !== 'undefined' ? params['type'] : 'bg';
 			var hasContent = typeof params['hasContent'] !== 'undefined' ? params['hasContent'] : false;
 			var withFrame = typeof params['withFrame'] === 'boolean' ? params['withFrame'] : false;
@@ -21,8 +23,8 @@
 				$(this).addClass('multislide');
  				$(this).addClass('multislide-' + multislideID);
 
- 				
-				
+
+
 				if(withFrame) {
 					var frameElement = '';
 
@@ -61,8 +63,8 @@
 					});
 				}
 
-				
-				
+
+
 				$(this).append('<div class="slides"></div>');
 
 				$(this).find('.slides').each(function() {
@@ -80,7 +82,7 @@
 								caption += '<span class="line-' + String(j + 1) + '">' + captionParts[j] + '</span>';
 							}
 						}
-		
+
 						var elementType = 'div';
 						var classes = 'slide-' + i;
 
@@ -104,7 +106,7 @@
 						}
 
 						attrs += ' class="' + classes + '"';
-											
+
 						var element = '<' + elementType + attrs + '>' + content + '</' + elementType + '>';
 						$(this).append(element);
 
@@ -150,7 +152,7 @@
 						});
 					}
 
-					
+
 				});
 
 				$controls = $(this).find('.controls a');
@@ -173,17 +175,17 @@
 					}
 
 					var nextSlide = $next.index() + 1;
-				
+
 					$(this).parent().multislide('goto', nextSlide);
 				});
-				
-				
+
+
 			});
 		},
 
 		prev: function() {
 			$(this).each(function() {
-			
+
 				$(this).children('.slides').each(function() {
 					var $activeSlide = $(this).children('.active');
 
@@ -196,7 +198,7 @@
 					var prevSlide = $prev.index() + 1;
 
 					$(this).parent().multislide('goto', prevSlide);
-				});				
+				});
 			});
 		}
 	};
@@ -210,7 +212,7 @@
 			return methods.init.apply( this, arguments );
 		} else {
 			$.error( 'Method ' +  method + ' does not exist in multislide' );
-		}    
+		}
 
 	};
 
