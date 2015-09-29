@@ -12,6 +12,8 @@ function copy_me_date_all_day_label() {
 
 function copy_me_preprocess_page(&$variables) {
 	$variables['site_name_element'] = $variables['is_front'] ? 'h1' : 'div';
+
+	drupal_add_js(array('breakpoints' => _copy_me_get_breakpoint_dimensions()));
 }
 
 function copy_me_preprocess_entity(&$variables, $hook) {

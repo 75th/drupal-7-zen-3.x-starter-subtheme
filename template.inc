@@ -1,6 +1,47 @@
 <?php
 
 /*
+ * Return an array with my mad responsive breakpoint calculations
+ */
+
+function _copy_me_get_breakpoint_dimensions(
+	$maxima = array('desktop-large' => 1200, 'desktop-small' => 980, 'tablet' => 768), // The largest that each breakpoint minimum can POSSIBLY go
+	$smallest_breakpoint_name = 'mobile', // The breakpoint that begins at zero and extends to the lowest breakpoint in $maxima
+	$columns = 12, // Number of columns in the grid layout
+	$column_factor = 5 // Number by which all column widths must be divisible
+) {
+	arsort($maxima); // Sort the breakpoints, largest first
+
+	$breakpoints = array_keys($maxima); // List of breakpoints
+	$dimensions = array();
+
+
+	// The fun begins. For each breakpoint, find the highest column width that is divisible by
+	// $column_factor, and also results in a number less than or equal to the $maxima entry
+	// when you multiply the column width by $columns.
+
+	foreach($maxima as $breakpoint => $maximum) {
+		$dimensions[$breakpoint]['column-x'] = floor($maximum / $columns) - (floor($maximum / $columns) % $column_factor);
+	}
+
+	// Now, given the calculated column widths, compute the boundaries of each breakpoint.
+
+	for($i = 0; $i < count($breakpoints); $i++) {
+		$boundary = $dimensions[$breakpoints[$i]]['column-x'] * $columns; // The minimum for this breakpoint is just the column width times the number of columns
+		$dimensions[$breakpoints[$i]]['min'] = $boundary; // Put it in the actual result array
+
+		if(!empty($breakpoints[$i + 1])) { // If there's another breakpoint with a non-zero minimum
+			$dimensions[$breakpoints[$i + 1]]['max'] = $boundary - 1; // The next-largest breakpoint's upper boundary is, of course, one pixel less
+		} else { // If this is the smallest breakpoint with non-zero minimum
+			$dimensions[$smallest_breakpoint_name]['max'] = $boundary - 1; //
+		}
+	}
+
+	return $dimensions;
+}
+
+
+/*
  * Get a value out of a Drupal entity object's field property. FIXME: Needs work.
  */
 
