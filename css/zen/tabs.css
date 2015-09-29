@@ -1,128 +1,120 @@
-/**
- * @file
- * Tabs Styling
- *
- * Adds styles for the primary and secondary tabs.
- *
- * Compare this with default CSS found in the system module's stylesheet (a copy
- * of which is in drupal6-reference.css, line 510.)
- */
-
-
-div.tabs {
-  margin: 0 0 5px 0;
+.tabs.primary,
+.tabs.secondary {
+    overflow: hidden;
+    *zoom: 1;
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(100%, #bbbbbb), color-stop(100%, transparent));
+    background-image: -webkit-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+    background-image: -moz-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+    background-image: -o-linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+    background-image: linear-gradient(bottom, #bbbbbb 1px, transparent 1px);
+    list-style: none;
+    border-bottom: 1px solid #bbb \0/ie;
+    margin: 1.5em 0;
+    padding: 0 2px;
+    white-space: nowrap
+}
+.tabs.primary li,
+.tabs.secondary li,
+.tabs.secondary li.active {
+    float: left;
+    margin: 0 3px
+}
+.tabs.primary a,
+.tabs.secondary a {
+    border: 1px solid #e9e9e9;
+    border-right: 0;
+    border-bottom: 0;
+    display: block;
+    line-height: 1.5em;
+    text-decoration: none
+}
+.tabs.primary li,
+.tabs.primary li.active {
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    text-shadow: 1px 1px 0 #fff;
+    border: 1px solid #bbb;
+    border-bottom-color: transparent;
+    border-bottom: 0 \0/ie
+}
+.tabs.primary li.active {
+    border-bottom-color: #fff
 }
 
-ul.primary {
-  margin: 0;
-  padding: 0 0 0 10px; /* LTR */
-  border-width: 0;
-  list-style: none;
-  white-space: nowrap;
-  line-height: normal;
-  background: url(../../images/tabs/tab-bar.png) repeat-x left bottom;
+.tabs.primary a,
+.tabs.primary a.active {
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    color: #333;
+    background-color: #dedede;
+    letter-spacing: 1px;
+    padding: 0 1em;
+    text-align: center
 }
 
-ul.primary li {
-  float: left; /* LTR */
-  margin: 0;
-  padding: 0;
+.tabs.primary a:hover,
+.tabs.primary a:focus {
+    background-color: #e9e9e9;
+    border-color: #f2f2f2
 }
-
-ul.primary li a {
-  display: block;
-  height: 24px;
-  margin: 0;
-  padding: 0 0 0 5px; /* width of tab-left.png */
-  border-width: 0;
-  font-weight: bold;
-  text-decoration: none;
-  color: #777;
-  background-color: transparent;
-  background: url(../../images/tabs/tab-left.png) no-repeat left -38px;
+.tabs.primary a:active,
+.tabs.primary a.active {
+    background-color: transparent;
+    *zoom: 1;
+    filter: progid: DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFE9E9E9', endColorstr='#00E9E9E9');
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e9e9), color-stop(100%, rgba(233, 233, 233, 0)));
+    background-image: -webkit-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+    background-image: -moz-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+    background-image: -o-linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+    background-image: linear-gradient(#e9e9e9, rgba(233, 233, 233, 0));
+    border-color: #fff
 }
-
-ul.primary li a .tab {
-  display: block;
-  height: 20px; /* 24px (parent) - 4px (padding) */
-  margin: 0;
-  padding: 4px 13px 0 6px;
-  border-width: 0;
-  line-height: 20px;
-  background: url(../../images/tabs/tab-right.png) no-repeat right -38px;
+.tabs.secondary {
+    font-size: .9em;
+    margin-top: -1.5em
 }
-
-ul.primary li a:hover,
-ul.primary li a:focus {
-  border-width: 0;
-  background-color: transparent;
-  background: url(../../images/tabs/tab-left.png) no-repeat left -76px;
+.tabs.secondary li,
+.tabs.secondary li.active {
+    margin: 0.75em 3px
 }
-
-ul.primary li a:hover .tab,
-ul.primary li a:focus .tab {
-  background: url(../../images/tabs/tab-right.png) no-repeat right -76px;
+.tabs.secondary a,
+.tabs.secondary a.active {
+    -webkit-border-radius: 0.75em;
+    -moz-border-radius: 0.75em;
+    -ms-border-radius: 0.75em;
+    -o-border-radius: 0.75em;
+    border-radius: 0.75em;
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    text-shadow: 1px 1px 0 #fff;
+    background-color: #f2f2f2;
+    color: #666;
+    padding: 0 .5em
 }
-
-ul.primary li.active a,
-ul.primary li.active a:hover,
-ul.primary li.active a:focus {
-  border-width: 0;
-  color: #000;
-  background-color: transparent;
-  background: url(../../images/tabs/tab-left.png) no-repeat left 0;
+.tabs.secondary a:hover,
+.tabs.secondary a:focus {
+    background-color: #dedede;
+    border-color: #999;
+    color: #333
 }
-
-ul.primary li.active a .tab,
-ul.primary li.active a:hover .tab,
-ul.primary li.active a:focus .tab {
-  background: url(../../images/tabs/tab-right.png) no-repeat right 0;
-}
-
-ul.secondary {
-  margin: 0;
-  padding: 0 0 0 5px; /* LTR */
-  border-bottom: 1px solid #c0c0c0;
-  list-style: none;
-  white-space: nowrap;
-  background: url(../../images/tabs/tab-secondary-bg.png) repeat-x left bottom;
-}
-
-ul.secondary li {
-  float: left; /* LTR */
-  margin: 0 5px 0 0;
-  padding: 5px 0;
-  border-right: none; /* LTR */
-}
-
-ul.secondary a {
-  display: block;
-  height: 24px;
-  margin: 0;
-  padding: 0;
-  border: 1px solid #c0c0c0;
-  text-decoration: none;
-  color: #777;
-  background: url(../../images/tabs/tab-secondary.png) repeat-x left -56px;
-}
-
-ul.secondary a .tab {
-  display: block;
-  height: 18px; /* 24px (parent) - 6px (padding) */
-  margin: 0;
-  padding: 3px 8px;
-  line-height: 18px;
-}
-
-ul.secondary a:hover,
-ul.secondary a:focus {
-  background: url(../../images/tabs/tab-secondary.png) repeat-x left bottom;
-}
-
-ul.secondary a.active,
-ul.secondary a.active:hover,
-ul.secondary a.active:focus {
-  border: 1px solid #c0c0c0;
-  color: #000;
-  background: url(../../images/tabs/tab-secondary.png) repeat-x left top;
+.tabs.secondary a:active,
+.tabs.secondary a.active {
+    text-shadow: 1px 1px 0 #333;
+    background-color: #666;
+    border-color: #000;
+    color: #fff
 }
