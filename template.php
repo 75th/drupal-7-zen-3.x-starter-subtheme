@@ -11,7 +11,14 @@ function copy_me_date_all_day_label() {
 }
 
 function copy_me_preprocess_page(&$variables) {
+
+	// Since HTML5 outline structure didn't work out, let's not have the site
+	// name be the <h1> anywhere except the home page.
+
 	$variables['site_name_element'] = $variables['is_front'] ? 'h1' : 'div';
+
+	// Inject the insane responsive breakpoint calculation variables into
+	// JavaScript for use in matchMedia/mediaCheck
 
 	drupal_add_js(array('breakpoints' => _copy_me_get_breakpoint_dimensions()), 'setting');
 }
@@ -84,7 +91,6 @@ function copy_me_preprocess_field(&$variables, $hook) {
 /*
  * Removes ugly "See map:" text from Location module map links
  */
-
 function copy_me_preprocess_location(&$variables) {
 	if(!empty($variables['map_link'])) {
 		$variables['map_link'] = location_map_link($variables['location'], '');
@@ -158,6 +164,9 @@ function copy_me_menu_local_task($variables) {
 	return '<li' . ($class ? ' class="' . $class . '"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
 }
 
+/**
+ * Provide the breakpoint variables to Less
+ */
 function copy_me_less_variables_alter(&$less_variables, $system_name) {
 	$new_variables = array();
 
