@@ -13,7 +13,7 @@ function copy_me_date_all_day_label() {
 function copy_me_preprocess_page(&$variables) {
 	$variables['site_name_element'] = $variables['is_front'] ? 'h1' : 'div';
 
-	drupal_add_js(array('breakpoints' => _copy_me_get_breakpoint_dimensions()));
+	drupal_add_js(array('breakpoints' => _copy_me_get_breakpoint_dimensions()), 'setting');
 }
 
 function copy_me_preprocess_entity(&$variables, $hook) {
@@ -156,4 +156,18 @@ function copy_me_menu_local_task($variables) {
 	}
 
 	return '<li' . ($class ? ' class="' . $class . '"' : '') . '>' . l($link_text, $link['href'], $link['localized_options']) . "</li>\n";
+}
+
+function copy_me_less_variables_alter(&$less_variables, $system_name) {
+	$new_variables = array();
+
+	$dimensions = _copy_me_get_breakpoint_dimensions();
+
+	foreach($dimensions as $breakpoint => $vars) {
+		foreach($vars as $var_name => $value) {
+			$new_variables['@' . $breakpoint . '-' . $var_name] = sprintf('%spx', $value);
+		}
+	}
+
+	$less_variables = array_merge($less_variables, $new_variables);
 }
