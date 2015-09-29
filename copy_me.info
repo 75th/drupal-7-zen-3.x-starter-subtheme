@@ -12,7 +12,7 @@ base theme  = zen
 stylesheets[all][]        = css/zen/misc.css
 stylesheets[all][]        = css/zen/tabs.css
 stylesheets[all][]        = css/copy_me.less
-stylesheets[print][]      = css/zen/print.less
+stylesheets[print][]      = css/conditional/print.less
 
 stylesheets-conditional[lte IE 7][all][]  = css/conditional/ie7.less
 stylesheets-conditional[lte IE 8][all][]  = css/conditional/ie8.less
@@ -21,7 +21,6 @@ stylesheets-conditional[lte IE 8][all][]  = css/conditional/ie8.less
 
 scripts[] = js/modernizr.js
 scripts[] = js/mediaCheck-min.js
-scripts[] = js/jquery-1.11.3.min.js
 ; scripts[] = js/jquery-multislide.js
 scripts[] = js/copy_me.js
 

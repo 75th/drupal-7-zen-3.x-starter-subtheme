@@ -4,7 +4,7 @@
 // ALERT! There are many useful helper functions in template.inc!
 // ==============================================================
 
-include_once('./template.inc');
+include_once(__DIR__ . '/template.inc');
 
 function copy_me_date_all_day_label() {
 	return '';
