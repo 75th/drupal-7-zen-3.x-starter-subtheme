@@ -20,6 +20,7 @@ stylesheets-conditional[lte IE 8][all][]  = css/conditional/ie8.less
 ; Optionally add some JavaScripts to your theme.
 
 scripts[] = js/modernizr.js
+scripts[] = js/sprintf.min.js
 scripts[] = js/mediaCheck-min.js
 ; scripts[] = js/jquery-multislide.js
 scripts[] = js/copy_me.js
