@@ -15,7 +15,7 @@ stylesheets[all][]        = css/copy_me.less
 stylesheets[print][]      = css/conditional/print.less
 
 stylesheets-conditional[lte IE 7][all][]  = css/conditional/ie7.less
-stylesheets-conditional[lte IE 8][all][]  = css/conditional/ie8.less
+; stylesheets-conditional[lte IE 8][all][]  = css/conditional/ie8.less
 
 ; Optionally add some JavaScripts to your theme.
 
