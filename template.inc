@@ -180,7 +180,7 @@ function _copy_me_news_view_titles(&$view) {
 		$date_string = '';
 	}
 
-	$view->empty['area']->options['content'] = 'There were no news items ' . $date_preposition . ' ' . $date_string . '.';
+	$view->empty['area']->options['content'] = sprintf('There were no news items %s %s.', $date_preposition, $date_string);
 }
 
 
