@@ -202,8 +202,7 @@ function _copy_me_suppress_menu_auto_expansion(&$tree, &$config) {
 				$link['below'] = array();
 			} else {
 				// Call this same function recursively on the children.
-				// It works fine, but it feels icky to call a Drupal hook in itself.
-				eversity_menu_block_tree_alter($link['below'], $config);
+				_copy_me_suppress_menu_auto_expansion($link['below'], $config);
 			}
 		}
 	}
