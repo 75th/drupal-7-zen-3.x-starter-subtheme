@@ -80,8 +80,8 @@
 
 		<header>
 			<div>
-				<<?php print $site_name_element; ?> id="site-title">
-					<a href="<?php print $front_page; ?>" rel="home"><img class="site-logo" src="<?php print $logo; ?>"> <?php print $site_name; ?></a>
+				<<?php print $site_name_element; ?> id="site-name">
+					<a href="<?php print $front_page; ?>" rel="home"><img class="site-logo" alt="" src="<?php print $logo; ?>"><span><?php print $site_name; ?></span></a>
 				</<?php print $site_name_element; ?>>
 
 				<?php print render($page['header']); ?>
