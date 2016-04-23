@@ -11,19 +11,19 @@ base theme  = zen
 
 stylesheets[all][]        = css/zen/misc.css
 stylesheets[all][]        = css/zen/tabs.css
-stylesheets[all][]        = css/copy_me.less
-stylesheets[print][]      = css/conditional/print.less
+stylesheets[all][]        = css/copy_me.css
+stylesheets[print][]      = css/conditional/print.css
 
-stylesheets-conditional[lte IE 7][all][]  = css/conditional/ie7.less
-; stylesheets-conditional[lte IE 8][all][]  = css/conditional/ie8.less
+stylesheets-conditional[lte IE 7][all][]  = css/conditional/ie7.css
+; stylesheets-conditional[lte IE 8][all][]  = css/conditional/ie8.css
 
 ; Optionally add some JavaScripts to your theme.
 
-scripts[] = js/modernizr.js
-scripts[] = js/sprintf.min.js
-scripts[] = js/mediaCheck-min.js
+scripts[] = js/min/modernizr.min.js
+scripts[] = js/min/sprintf.min.js
+scripts[] = js/min/mediaCheck-min.js
 ; scripts[] = js/jquery-multislide.js
-scripts[] = js/copy_me.js
+scripts[] = js/min/copy_me.min.js
 
 
 regions[top]            = Page top
