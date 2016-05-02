@@ -1,7 +1,6 @@
 // ---------------------------------------------------------------------
 // Set an element to be constrained to every breakpoint's maximum width.
 // ---------------------------------------------------------------------
-
 @mixin frame($margin: 0px)
 {
 	$gutter: $margin * 2;
@@ -23,9 +22,8 @@
 
 
 // ------------------------------------------------------
-// REstore previously `.frame()`d elements to 100% width.
+// Restore previously `.frame()`d elements to 100% width.
 // ------------------------------------------------------
-
 @mixin frame-cancel()
 {
 	@include clearer-cancel();
@@ -38,7 +36,6 @@
 // -----------------------------------------------
 // .frame()’s mobile rules for manual application.
 // -----------------------------------------------
-
 @mixin mobile-full()
 {
 	width: 90%;
@@ -52,7 +49,6 @@
 // where everything is full width). It uses the `.cols-width()` mixin below, which can be called
 // manually if an element should be a different number of columns in different breakpoints.
 // ---------------------------------------------------------------------------------------------
-
 @mixin cols($num, $float: left)
 {
 
@@ -75,12 +71,11 @@
 }
 
 
-// --------------------------------------------------------------------------------------------
-// The 'inner' parameter is for when you're already inside an element that's been used with
+// ---------------------------------------------------------------------------------------------
+// The 'inner' designation refers to when you're already inside an element that's been used with
 // `.cols()`, or otherwise has the 10px horizontal margins applied. It removes margins from the
 // first and last elements, keeping the total width correct.
-// --------------------------------------------------------------------------------------------
-
+// ---------------------------------------------------------------------------------------------
 @mixin cols-inner($num, $float: left)
 {
 	@include cols($num, $float);
@@ -100,7 +95,6 @@
 // width of a full column before margins are subtracted, and by default it uses the column widths
 // derived in `sizes.less`.
 // -----------------------------------------------------------------------------------------------
-
 @mixin cols-width($num, $full-col, $float: left, $margin: 10px)
 {
 	$gutter: $margin * 2;
@@ -116,7 +110,6 @@
 // Dark magic that takes a container of items and puts them side-by-side, evenly distributed across
 // the container's width, no matter how many elements there are.
 // ------------------------------------------------------------------------------------------------
-
 @mixin distribute-center($overflow: hidden, $offset-v: 1px)
 {
 	text-align: justify;
@@ -149,7 +142,6 @@
 //
 // Source: http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
 // ----------------------------------------------------------------------------------------------
-
 @mixin sticky-footer($footer-y: $footer-y)
 {
 	&, body {
@@ -181,7 +173,6 @@
 // -------------------------------------
 // Does exactly what it says on the tin.
 // -------------------------------------
-
 @mixin sticky-footer-cancel()
 {
 	&, body {
@@ -208,7 +199,6 @@
 // Can be applied to any element to make floats behave. Should also be your first suspect if you
 // have a problem getting your sticky footer to stick.
 // ---------------------------------------------------------------------------------------------
-
 @mixin clearer()
 {
 	&:after {
@@ -226,7 +216,6 @@
 // -----------------
 // Self-explanatory.
 // -----------------
-
 @mixin clearer-cancel()
 {
 	&:after {
