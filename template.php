@@ -6,6 +6,11 @@
 
 include_once(__DIR__ . '/template.inc');
 
+/**
+ * Overrides theme_all_day_label().
+ *
+ * Gets rid of the annoying "(All day)" suffix on all-day dates.
+ */
 function copy_me_date_all_day_label() {
 	return '';
 }
@@ -97,12 +102,6 @@ function copy_me_preprocess_location(&$variables) {
 	}
 }
 
-
-/**
- * Returns HTML for primary and secondary local tasks.
- *
- * @ingroup themeable
- */
 function copy_me_menu_local_tasks(&$variables) {
 	$output = '';
 
@@ -133,11 +132,6 @@ function copy_me_menu_local_tasks(&$variables) {
 	return $output;
 }
 
-/**
- * Returns HTML for a single local task link.
- *
- * @ingroup themeable
- */
 function copy_me_menu_local_task($variables) {
 	$class = '';
 
@@ -165,7 +159,9 @@ function copy_me_menu_local_task($variables) {
 }
 
 /**
- * Provide the breakpoint variables to Less
+ * Provide the breakpoint variables to Less.
+ *
+ * Obsolete with new Sass method.
  */
 function copy_me_less_variables_alter(&$less_variables, $system_name) {
 	$new_variables = array();
