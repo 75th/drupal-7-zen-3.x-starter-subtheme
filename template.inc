@@ -1,9 +1,38 @@
 <?php
 
-/*
- * Return an array with my mad responsive breakpoint calculations
+/**
+ * @file
+ * Helper functions that are not used on every site.
+ *
+ * The contents of many functions here were copied and pasted from the bodies of
+ * hook implementations on the sites they were written for. Documentation of
+ * some of those functions' parameters are found on the hooks they were
+ * originally implementations of; those hooks are noted by name in the docblock
+ * for those functions.
  */
 
+/**
+ * Returns an array with my mad responsive breakpoint calculations.
+ *
+ * Probably soon to be obsoleted by my switch from the less module to
+ * Sass + CodeKit.
+ *
+ * @param int[] $maxima
+ *   The largest number of pixels you possibly want for each breakpoint's
+ *   smallest width. In other words, "the maximum for each minimum". DO NOT
+ *   include the smallest breakpoint; it goes from 0 to one pixel less than
+ *   your smallest breakpoint's minimum.
+ * @param string
+ *   The name of the smallest breakpoint.
+ * @param int $columns
+ *   The number of columns in the normal layout.
+ * @param int $column_factor
+ *   The number by which you want all column widths to be divisible.
+ *
+ * @return array
+ *   Data structure representing every breakpoint and their smallest and largest
+ *   widths.
+ */
 function _copy_me_get_breakpoint_dimensions(
 	$maxima = array('desktop-large' => 1200, 'desktop-small' => 980, 'tablet' => 768), // The largest that each breakpoint minimum can POSSIBLY go
 	$smallest_breakpoint_name = 'mobile', // The breakpoint that begins at zero and extends to the lowest breakpoint in $maxima
@@ -14,7 +43,6 @@ function _copy_me_get_breakpoint_dimensions(
 
 	$breakpoints = array_keys($maxima); // List of breakpoints
 	$dimensions = array();
-
 
 	// The fun begins. For each breakpoint, find the highest column width that is divisible by
 	// $column_factor, and also results in a number less than or equal to the $maxima entry
@@ -41,10 +69,24 @@ function _copy_me_get_breakpoint_dimensions(
 }
 
 
-/*
- * Get a value out of a Drupal entity object's field property. FIXME: Needs work.
+/**
+ * Gets a value out of a Drupal entity object's field property. Needs work.
+ *
+ * @param string $entity_type
+ *   E.g. 'node'.
+ * @param object $entity
+ *   Entity object.
+ * @param string
+ *   Machine name of the field you want to retrieve one of the values of.
+ * @param int $delta
+ *   Which entry in a multi-value field you want.
+ * @param string $img_prop
+ *    Which property of an image you want to return. This should be abstracted
+ *    out to apply to any field type, not just images.
+ *
+ * @return string
+ *   The raw value or rendered output of the requested field.
  */
-
 function _copy_me_get_field_item_value($entity_type, $entity, $field_name, $delta = 0, $img_prop = 'uri') {
 	$field_info = field_info_field($field_name);
 	$result = field_get_items($entity_type, $entity, $field_name);
@@ -83,10 +125,15 @@ function _copy_me_get_field_item_value($entity_type, $entity, $field_name, $delt
 }
 
 
-/*
- * Makes Location module proximity searches more user-friendly, after liberal CSS application
+/**
+ * Makes Location module proximity searches more user-friendly, after liberal
+ * CSS application
+ *
+ * @param object &$form
+ *   Form object.
+ * @param string $el
+ *   Machine name of the element of the exposed form to modify.
  */
-
 function _copy_me_prettify_location_search(&$form, $el = 'zip') {
 	$form[$el]['postal_code']['#title'] = t('ZIP code');
 	$form[$el]['postal_code']['#size'] = 5;
@@ -98,13 +145,20 @@ function _copy_me_prettify_location_search(&$form, $el = 'zip') {
 }
 
 
-/*
+/**
  * Wraps menu block submenus in an additional div. This function does nothing
  * without being called in an actual copy_me_menu_link function.
  *
  * Remember to return this function's return value when you call it!
+ *
+ * @param array $variables
+ *   Variables array from theme_menu_link().
+ *
+ * @return string
+ *   Constructed menu link suitable for theme_menu_link() return value.
+ *
+ * @see theme_menu_link()
  */
-
 function _copy_me_wrap_menu_submenus($variables) {
 	$element = $variables ['element'];
 	$sub_menu = '';
@@ -123,11 +177,23 @@ function _copy_me_wrap_menu_submenus($variables) {
 }
 
 
-/*
- * Does surgery on Illustrator's default SVG output
+/**
+ * Does surgery on Illustrator's default SVG output.
+ *
+ * @param string $svg
+ *   File path or Drupal URI to uploaded SVG file. Only works on local file
+ *   systems at this time.
+ * @param bool $is_uri
+ *   Manual designation of whether a file path or a Drupal URI was supplied.
+ *
+ * @return string
+ *   Final SVG string for document.
+ *
+ *  @todo Detect what kind of path is supplied, instead of having a parameter
+ *    for it.
+ *  @todo Change to work with remote file systems.
  */
-
-function _copy_me_get_svg($svg, $eid, $is_uri = TRUE) {
+function _copy_me_get_svg($svg, $is_uri = TRUE) {
 	if($is_uri) {
 		$svg = drupal_realpath($svg);
 	}
@@ -141,11 +207,15 @@ function _copy_me_get_svg($svg, $eid, $is_uri = TRUE) {
 }
 
 
-/*
- * Constructs grammatically pleasing titles for News archive views that accept year, month, and day arguments.
+/**
+ * Constructs grammatically pleasing titles for News archive views that accept
+ * year, month, and day arguments.
+ *
  * To be called in copy_me_views_pre_render(), naturally.
+ *
+ * @param object &$view
+ *   $view object from hook_views_pre_render().
  */
-
 function _copy_me_news_view_titles(&$view) {
 
 	$date_parts = array(
@@ -184,11 +254,14 @@ function _copy_me_news_view_titles(&$view) {
 }
 
 
-/*
+/**
  * Stops Drupal's default behavior of automatically expanding the children
- * of menu links pointing to your current page. Goes in copy_me_menu_block_tree_alter().
+ * of menu links pointing to your current page.
+ *
+ * Goes in copy_me_menu_block_tree_alter().
+ *
+ * @see hook_menu_block_tree_alter()
  */
-
 function _copy_me_suppress_menu_auto_expansion(&$tree, &$config) {
 
 	// Don't do anything if the entire menu block is set to be Expanded
@@ -211,22 +284,32 @@ function _copy_me_suppress_menu_auto_expansion(&$tree, &$config) {
 }
 
 
-/*
- * Adds class to Views list containers (<ul>, <ol>) denoting how many rows are within.
+/**
+ * Adds class to Views list containers (<ul>, <ol>) denoting how many rows are
+ * within.
+ *
  * Goes in copy_me_preprocess_views_view_list().
+ *
+ * @see template_preprocess_views_view_list()
  */
-
 function _copy_me_list_view_container_quantity_class(&$variables) {
 	$handler = $variables['view']->style_plugin;
 
 	$variables['list_type_prefix'] = sprintf('<%s class="view-rows-%s">', $handler->options['type'], count($variables['rows']));
 }
 
-
-/*
- * Adds a notice to the bottom of the final page of a paginated View. Goes in copy_me_views_pre_render().
+/**
+ * Adds a notice to the bottom of the final page of a paginated View.
+ *
+ * Goes in copy_me_views_pre_render().
+ *
+ * @param object &$view
+ *   View object.
+ * @param string[] $list_displays
+ *   Array of machine names of displays that show a list of rendered posts
+ * @param string[] $nav_displays
+ *   Array of machine names of displays that show a summary navigation
  */
-
 function _copy_me_end_of_paged_view(&$view, $list_displays = array('page_1'), $nav_displays = array('attachment_1')) {
 
 	if(in_array($view->current_display, $list_displays)) {
