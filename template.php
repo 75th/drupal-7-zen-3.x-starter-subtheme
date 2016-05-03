@@ -54,7 +54,6 @@ function copy_me_preprocess_entity(&$variables, $hook) {
 
 			drupal_add_html_head($tag, $mid);
 
-
 			// Construct default tweet text
 
 			if(!empty($variables['field_description'])) {

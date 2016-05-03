@@ -8,6 +8,11 @@ html, body {
 	padding: 0px;
 }
 
+html {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
 ul.tabs, ul.tabs * {
 	box-sizing: content-box;
 	-moz-box-sizing: content-box;
@@ -68,4 +73,19 @@ table {
 			border-color: black;
 		}
 	}
+}
+
+div.messages {
+	border-left: 0px none;
+	border-right: 0px none;
+
+	&:first-child {
+		margin-top: 30px;
+	}
+}
+
+.element-invisible {
+	position: absolute !important;
+	width: 0px !important;
+	height: 0px !important;
 }
