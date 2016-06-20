@@ -173,7 +173,7 @@
 // -------------------------------------
 // Does exactly what it says on the tin.
 // -------------------------------------
-@mixin sticky-footer-cancel()
+@mixin sticky-footer-cancel
 {
 	&, body {
 		height: auto;
@@ -199,7 +199,7 @@
 // Can be applied to any element to make floats behave. Should also be your first suspect if you
 // have a problem getting your sticky footer to stick.
 // ---------------------------------------------------------------------------------------------
-@mixin clearer()
+@mixin clearer
 {
 	&:after {
 		content: ".";
@@ -216,7 +216,7 @@
 // -----------------
 // Self-explanatory.
 // -----------------
-@mixin clearer-cancel()
+@mixin clearer-cancel
 {
 	&:after {
 		content: none;
@@ -227,7 +227,7 @@
 // -------------------------------------------------------
 // Can be applied to `<ul>`s and `<ol>`s to regain sanity.
 // -------------------------------------------------------
-@mixin list-reset()
+@mixin list-reset
 {
 	display: block;
 	margin: 0px;
@@ -242,7 +242,7 @@
 // ----------------------
 // For image replacement.
 // ----------------------
-@mixin hide-text()
+@mixin hide-text
 {
 	font-size: 0.1px;
 	text-indent: 100%;
