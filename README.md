@@ -32,7 +32,7 @@ There are also helper functions and dormant hook implementations in `template.in
   contextual filters
 - Stop Drupal's default behavior of automatically expanding the children of
   menu links pointing to the currently-viewed page
-- Add classes to Views list containers (&lt;ul&gt;, &lt;ol&gt;) denoting how
+- Add classes to Views list containers (`<ul>`, `<ol>`) denoting how
   many rows are within
 - Add a notice to the bottom of the final page of a paginated View
 
