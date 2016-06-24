@@ -42,7 +42,7 @@ function copy_me_preprocess_entity(&$variables, $hook) {
 
 			$img = file_create_url($variables['field_image'][0]['uri']);
 			$eid = $variables['elements']['#entity']->item_id;
-			$mid = 'eversity_sharable_graphic_img_' . $eid;
+			$mid = 'eversity_sharable_graphic_img_' . $eid; // FIXME!
 			$tag = array(
 				'#id' => $mid,
 				'#tag' => 'meta',
