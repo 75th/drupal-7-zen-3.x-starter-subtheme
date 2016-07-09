@@ -21,7 +21,7 @@ stylesheets-conditional[lte IE 7][all][]  = css/conditional/ie7.css
 
 scripts[] = js/min/modernizr.min.js
 scripts[] = js/min/sprintf.min.js
-scripts[] = js/min/mediaCheck-min.js
+scripts[] = js/min/mediaCheck.min.js
 ; scripts[] = js/jquery-multislide.js
 scripts[] = js/min/copy_me.min.js
 
