@@ -26,6 +26,21 @@ function copy_me_preprocess_page(&$variables) {
 	// JavaScript for use in matchMedia/mediaCheck
 
 	drupal_add_js(array('breakpoints' => _copy_me_get_breakpoint_dimensions()), 'setting');
+
+	// Add preprocess function "suggestions" for copy_me_preprocess_page__node()
+	// and copy_me_preprocess_page__node__NODETYPE()
+	if(!empty($variables['node'])) {
+		$function_names = array(
+			__FUNCTION__ . '__node',
+			__FUNCTION__ . '__node__' . $variables['node']->type
+		);
+
+		foreach($function_names as $function_name) {
+			if(function_exists($function_name)) {
+				$function_name($variables);
+			}
+		}
+	}
 }
 
 function copy_me_preprocess_entity(&$variables, $hook) {
@@ -74,6 +89,13 @@ function copy_me_preprocess_node(&$variables, $hook) {
 
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['view_mode'];
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
+
+	// Add preprocess function "suggestion" for copy_me_preprocess_node__NODETYPE()
+	$function_name = __FUNCTION__ . '__' . $type;
+
+	if(function_exists($function_name)) {
+		$function_name($variables, $hook);
+	}
 }
 
 function copy_me_preprocess_field(&$variables, $hook) {
