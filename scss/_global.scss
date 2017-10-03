@@ -89,3 +89,15 @@ div.messages {
 	width: 0px !important;
 	height: 0px !important;
 }
+
+.caps {
+	letter-spacing: 1px;
+}
+
+.node-unpublished {
+	background-color: rgba(128, 128, 128, 0.25);
+
+	> div.unpublished {
+		color: rgba(128, 128, 128, 0.25);
+	}
+}
