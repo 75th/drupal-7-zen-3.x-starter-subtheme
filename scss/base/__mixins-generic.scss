@@ -1,8 +1,7 @@
 // ---------------------------------------------------------------------
 // Set an element to be constrained to every breakpoint's maximum width.
 // ---------------------------------------------------------------------
-@mixin frame($margin: 0px)
-{
+@mixin frame($margin: 0px) {
 	$gutter: $margin * 2;
 	width: $desktop-small-min - $gutter;
 	margin: auto;
@@ -16,17 +15,16 @@
 	}
 
 	@media only screen and (max-width: $mobile-large-max) {
-		@include mobile-full();
+		@include mobile-full;
 	}
 }
 
 
 // ------------------------------------------------------
-// Restore previously `.frame()`d elements to 100% width.
+// Restore previously `frame`d elements to 100% width.
 // ------------------------------------------------------
-@mixin frame-cancel()
-{
-	@include clearer-cancel();
+@mixin frame-cancel {
+	@include clearer-cancel;
 	width: 100%;
 	margin: 0px;
 
@@ -34,10 +32,9 @@
 }
 
 // -----------------------------------------------
-// .frame()’s mobile rules for manual application.
+// `frame`'s mobile rules for manual application.
 // -----------------------------------------------
-@mixin mobile-full()
-{
+@mixin mobile-full {
 	width: 90%;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -46,11 +43,10 @@
 
 // ---------------------------------------------------------------------------------------------
 // Assigns an element to the same number of grid columns in each breakpoint (except for mobile,
-// where everything is full width). It uses the `.cols-width()` mixin below, which can be called
+// where everything is full width). It uses the `cols-width` mixin below, which can be called
 // manually if an element should be a different number of columns in different breakpoints.
 // ---------------------------------------------------------------------------------------------
-@mixin cols($num, $float: left)
-{
+@mixin cols($num, $float: left) {
 
 	@include cols-width($num, $desktop-small-column-x, $float);
 
@@ -73,11 +69,10 @@
 
 // ---------------------------------------------------------------------------------------------
 // The 'inner' designation refers to when you're already inside an element that's been used with
-// `.cols()`, or otherwise has the 10px horizontal margins applied. It removes margins from the
+// `cols`, or otherwise has the 10px horizontal margins applied. It removes margins from the
 // first and last elements, keeping the total width correct.
 // ---------------------------------------------------------------------------------------------
-@mixin cols-inner($num, $float: left)
-{
+@mixin cols-inner($num, $float: left) {
 	@include cols($num, $float);
 
 	&:first-child {
@@ -91,18 +86,18 @@
 
 
 // -----------------------------------------------------------------------------------------------
-// Used by `.cols()` to calculate the widths for each breakpoint. The `$full-col` parameter is the
+// Used by `.cols` to calculate the widths for each breakpoint. The `$full-col` parameter is the
 // width of a full column before margins are subtracted, and by default it uses the column widths
 // derived in `sizes.less`.
 // -----------------------------------------------------------------------------------------------
-@mixin cols-width($num, $full-col, $float: left, $margin: 10px)
-{
+@mixin cols-width($num, $full-col, $float: left, $margin: 10px) {
 	$gutter: $margin * 2;
 	$col-width: $full-col - $gutter;
 
 	margin-left: $margin;
 	margin-right: $margin;
 	width: $num * $full-col - $gutter;
+	float: $float;
 }
 
 
@@ -110,8 +105,7 @@
 // Dark magic that takes a container of items and puts them side-by-side, evenly distributed across
 // the container's width, no matter how many elements there are.
 // ------------------------------------------------------------------------------------------------
-@mixin distribute-center($overflow: hidden, $offset-v: 1px)
-{
+@mixin distribute-center($overflow: hidden, $offset-v: 1px) {
 	text-align: justify;
 	overflow: $overflow;
 
@@ -138,12 +132,11 @@
 
 // ----------------------------------------------------------------------------------------------
 // Gives you a sticky footer when you put it on the html element and set the `$footer-y` variable
-// correctly in `sizes.less`. But heed the warning on `.clearer()` below.
+// correctly in `dimensions.scss`. But heed the warning on `clearer` below.
 //
 // Source: http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
 // ----------------------------------------------------------------------------------------------
-@mixin sticky-footer($footer-y: $footer-y)
-{
+@mixin sticky-footer($footer-y: $footer-y) {
 	&, body {
 		height: 100%;
 	}
@@ -165,7 +158,7 @@
 	}
 
 	@media only screen and (max-width: $tablet-max) {
-		@include sticky-footer-cancel();
+		@include sticky-footer-cancel;
 	}
 }
 
@@ -173,8 +166,7 @@
 // -------------------------------------
 // Does exactly what it says on the tin.
 // -------------------------------------
-@mixin sticky-footer-cancel
-{
+@mixin sticky-footer-cancel {
 	&, body {
 		height: auto;
 	}
@@ -199,8 +191,7 @@
 // Can be applied to any element to make floats behave. Should also be your first suspect if you
 // have a problem getting your sticky footer to stick.
 // ---------------------------------------------------------------------------------------------
-@mixin clearer
-{
+@mixin clearer {
 	&:after {
 		content: ".";
 		display: block;
@@ -216,8 +207,7 @@
 // -----------------
 // Self-explanatory.
 // -----------------
-@mixin clearer-cancel
-{
+@mixin clearer-cancel {
 	&:after {
 		content: none;
 	}
@@ -227,8 +217,7 @@
 // -------------------------------------------------------
 // Can be applied to `<ul>`s and `<ol>`s to regain sanity.
 // -------------------------------------------------------
-@mixin list-reset
-{
+@mixin list-reset {
 	display: block;
 	margin: 0px;
 	padding: 0px;
@@ -242,8 +231,7 @@
 // ----------------------
 // For image replacement.
 // ----------------------
-@mixin hide-text
-{
+@mixin hide-text {
 	font-size: 0.1px;
 	text-indent: 100%;
 	text-align: left;
@@ -256,8 +244,7 @@
 // ----------------------------------------------
 // Centered floats! What will they think of next?
 // ----------------------------------------------
-@mixin centered-menu($overflow: hidden)
-{
+@mixin centered-menu($overflow: hidden) {
 	width: 100%;
 	overflow: $overflow; // Needs to be visible sometimes, as with dropdowns
 
@@ -280,33 +267,41 @@
 // both axes. Should be used as a last resort.
 // -------------------------------------------------------------------------------------------------
 
-@mixin vertical-center()
-{
+@mixin vertical-center {
 	position: absolute;
 	top: 50%;
+	bottom: auto;
 	transform: translateY(-50%);
 }
 
-@mixin horizontal-center()
-{
+@mixin horizontal-center {
 	position: absolute;
 	left: 50%;
+	right: auto;
 	transform: translateX(-50%);
 }
 
-@mixin all-center()
-{
+@mixin all-center {
 	position: absolute;
 	top: 50%;
+	bottom: auto;
 	left: 50%;
+	right: auto;
 	transform: translate(-50%, -50%);
 }
 
 // --------------------------------------
 // Standard link-that-looks-like-a-button
 // --------------------------------------
-@mixin link-button($color, $hover-color)
-{
+@mixin link-button(
+	$border-width:   2px,
+	$c:              white,
+	$bgc:            black,
+	$border-c:       white,
+	$hover-c:        white,
+	$hover-bgc:      black,
+	$hover-border-c: black
+) {
 	text-align: center;
 	display: inline-block;
 	font-weight: bold;
@@ -314,13 +309,28 @@
 	padding: 8px 12px;
 
 	&, &:link, &:visited, &:hover, &:active {
-		color: white;
-		background-color: $color;
+		color: $c;
+		background-color: $bgc;
 	//	background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), $color;
 		text-decoration: none;
+		border: $border-width solid $border-c;
 	}
 
 	&:hover, &:active {
-		background-color: $hover-color;
+		color: $c;
+		background-color: $hover-bgc;
+		border-color: $hover-border-c;
 	}
+}
+
+@function empty($value) {
+	@if not $value
+		or $value == ""
+		or $value == 0
+		or $value == ()
+		or length($value) == 0
+	{
+		@return true;
+	}
+	@return false;
 }
