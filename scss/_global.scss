@@ -13,6 +13,18 @@ html {
 	-webkit-font-smoothing: antialiased;
 }
 
+h1, h2 {
+	line-height: 1.1;
+}
+
+:first-child {
+	margin-top: 0px;
+}
+
+:last-child {
+	margin-bottom: 0px;
+}
+
 ul.tabs, ul.tabs * {
 	box-sizing: content-box;
 	-moz-box-sizing: content-box;
